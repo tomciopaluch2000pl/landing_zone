@@ -1,6 +1,14 @@
 # Landing Zone Feed Validator
 
-This Python-based application validates feed submission packages (`.tar`) intended for HDR/TransArch systems. It unpacks, validates structure and content, auto-fixes minor issues, and prepares feed packages for further transfer (e.g., via MFT). Validation results are logged both as human-readable logs and structured JSONL logs for Grafana/ServiceNow integration.
+"""
+README for the HDR/TransArch Feed Validator
+
+This Python-based application validates `.tar` packages containing feed submissions. 
+It ensures the feed follows structural and content-related rules, auto-fixes known issues, 
+and prepares validated data for transfer (e.g., via MFT). 
+
+It also generates human-readable logs and JSONL-formatted logs for Grafana/ServiceNow integrations.
+"""
 
 ## 🔧 What it does
 
@@ -35,7 +43,7 @@ python main.py
 
 The app will automatically process all `.tar` files in the `incoming/` folder.
 
-## 📆 What goes into a `.tar` feed
+## 📦 What goes into a `.tar` feed
 
 A valid `.tar` feed should contain:
 - `*.audit.xml` – Submission metadata  
@@ -53,7 +61,7 @@ A valid `.tar` feed should contain:
 ]
 ```
 
-## 🧐 Auto-fix capabilities
+## 🧠 Auto-fix capabilities
 
 If `AUTO_FIX_ENABLED = True`, the system may attempt:
 - Resetting `.control` file size to 0 bytes  
