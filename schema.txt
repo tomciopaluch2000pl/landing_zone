@@ -1,0 +1,5 @@
+[
+  {"name": "ID", "nullable": false, "type": "long"},
+  {"name": "AMOUNT", "nullable": false, "type": "decimal"},
+  {"name": "REGION", "nullable": true, "type": "string"}
+]
