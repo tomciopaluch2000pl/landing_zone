@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+*.log
+*.tar
+*.zip
+workspace/
+incoming/
+ready_for_mft/
+rejected/
+logs/
