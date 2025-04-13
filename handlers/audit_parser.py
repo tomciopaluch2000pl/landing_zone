@@ -1,8 +1,35 @@
+"""
+audit_parser.py
+
+Parses the .audit.xml file in a feed submission.
+Extracts the base name, sequence number, version, and expected files with record counts.
+Used during validation to verify audit metadata vs. actual file presence and size.
+"""
+
 import os
 import xml.etree.ElementTree as ET
 from typing import Dict, List, Tuple
 
 def parse_audit_xml(audit_path: str) -> Tuple[str, str, str, List[Dict[str, str]]]:
+    """
+    Parses the audit.xml file and extracts submission metadata and file info.
+
+    Args:
+        audit_path: Path to the .audit.xml file
+
+    Returns:
+        Tuple of:
+            - base name (str)
+            - sequence number (str)
+            - version (str)
+            - list of file info dictionaries, each with:
+                * file_name (str)
+                * record_count (int)
+
+    Raises:
+        FileNotFoundError: If audit.xml file does not exist
+        ET.ParseError: If XML is malformed
+    """
     if not os.path.exists(audit_path):
         raise FileNotFoundError(f"Audit XML file not found: {audit_path}")
 
